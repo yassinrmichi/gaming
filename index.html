@@ -1,413 +1,330 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Gaming Rewards 🎮</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    
-    /* Updated gradient to black and green gaming theme */
-    .gradient-bg {
-      background: linear-gradient(135deg, #0a0a0a 0%, #10b981 100%);
-    }
-    
-    .card-hover {
-      transition: all 0.3s ease;
-    }
-    
-    /* Updated hover shadow to green */
-    .card-hover:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
-    }
-    
-    /* Updated pulse glow to green */
-    .pulse-glow {
-      animation: pulse-glow 2s ease-in-out infinite;
-    }
-    
-    @keyframes pulse-glow {
-      0%, 100% {
-        box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
-      }
-      50% {
-        box-shadow: 0 0 40px rgba(16, 185, 129, 0.8);
-      }
-    }
-    
-    /* Updated stat number gradient to green */
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nish - Install Top Apps Now</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 500px;
+            width: 90%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(99, 102, 241, 0.2);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animated loading spinner */
+        .spinner {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 40px;
+        }
+
+        .spinner-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid rgba(99, 102, 241, 0.2);
+            border-top-color: #6366f1;
+            border-right-color: #3b82f6;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+        }
+
+        .spinner-circle:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 10px;
+            left: 10px;
+            border-top-color: #3b82f6;
+            border-right-color: transparent;
+            animation: spin 1.5s linear infinite reverse;
+        }
+
+        .spinner-circle:nth-child(3) {
+            width: 40px;
+            height: 40px;
+            top: 20px;
+            left: 20px;
+            border-top-color: #6366f1;
+            border-right-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 0.95em;
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .status-text {
+            font-size: 0.85em;
+            color: #94a3b8;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #6366f1;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+            }
+            50% {
+                opacity: 0.7;
+            }
+            100% {
+                box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+            }
+        }
+
+        /* Progress bar */
+        .progress-container {
+            margin-bottom: 28px;
+        }
+
+        .progress-bar {
+            height: 3px;
+            background: rgba(99, 102, 241, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1 0%, #3b82f6 100%);
+            animation: fillProgress 2s ease-in-out infinite;
+            border-radius: 3px;
+        }
+
+        @keyframes fillProgress {
+            0% {
+                width: 0%;
+            }
+            50% {
+                width: 85%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        .cta-button {
+            width: 100%;
+            background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+            color: white;
+            border: none;
+            padding: 18px 32px; /* Enhanced button styling for better visibility */
+            font-size: 1.05em; /* Enhanced button styling for better visibility */
+            font-weight: 700; /* Enhanced button styling for better visibility */
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4); /* Enhanced button styling for better visibility */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .features {
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .feature {
+            font-size: 0.85em;
+        }
+
+        .feature-icon {
+            font-size: 1.8em;
+            margin-bottom: 8px;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 4px;
+        }
+
+        .feature-text {
+            color: #94a3b8;
+            font-size: 0.8em;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 24px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .subtitle {
+                font-size: 0.9em;
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-gray-100">
+<body>
+    <div class="container">
+        <div class="spinner">
+            <div class="spinner-circle"></div>
+            <div class="spinner-circle"></div>
+            <div class="spinner-circle"></div>
+        </div>
 
-  <!-- Updated banner background to darker theme -->
-  <div class="bg-black text-white py-3 text-center text-sm border-b border-green-500/20">
-    <p>🎉 <strong>Special Offer:</strong> Get double rewards this week!</p>
-  </div>
+        <h1>Nish Install</h1>
+        <p class="subtitle">Préparez vos applications préférées</p>
 
-  <!-- Updated header to dark theme with green accents -->
-  <header class="bg-gray-900 shadow-lg sticky top-0 z-50 border-b border-green-500/20">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-2">
-        <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
-          <span class="text-white text-xl font-bold">🎮</span>
+        <div class="status-text">
+            <span class="status-dot"></span>
+            Cliquez sur "Installer maintenant" pour commencer <!-- Updated status message to emphasize action -->
         </div>
-        <span class="text-xl font-bold text-white">Gaming Rewards</span>
-      </div>
-      <nav class="hidden md:flex gap-6 text-sm font-medium">
-        <a href="#gifts" class="text-gray-300 hover:text-green-400 transition">Rewards</a>
-        <a href="#how" class="text-gray-300 hover:text-green-400 transition">How It Works</a>
-        <a href="#testimonials" class="text-gray-300 hover:text-green-400 transition">Testimonials</a>
-      </nav>
-    </div>
-  </header>
 
-  <!-- Updated hero section with green accents -->
-  <section class="gradient-bg text-white py-20 px-4 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-10 left-10 w-72 h-72 bg-green-400 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-10 right-10 w-96 h-96 bg-green-400 rounded-full blur-3xl"></div>
-    </div>
-    
-    <div class="max-w-6xl mx-auto relative z-10">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div class="text-center md:text-left">
-          <div class="inline-block bg-green-500/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm mb-6 border border-green-500/30">
-            ✨ Over 50,000 active users
-          </div>
-          <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            Get Free<br/>
-            <span class="text-green-400">Gaming Rewards</span>
-          </h1>
-          <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-            Google Play, iTunes, PUBG UC, Free Fire Diamonds and more.<br/>
-            Easy, fast, and 100% guaranteed
-          </p>
-          <a href="#gifts" class="inline-block bg-green-500 text-black px-8 py-4 rounded-2xl text-lg font-bold shadow-2xl hover:shadow-green-500/50 hover:scale-105 transition-all pulse-glow hover:bg-green-400">
-            🎁 Start Now For Free
-          </a>
-        </div>
-        
-        <div class="hidden md:block">
-          <div class="relative">
-            <img src="./images/p" alt="Gaming Cards" class="w-full rounded-3xl shadow-2xl border-2 border-green-500/30">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Updated stats section background
-  <section class="py-12 bg-gray-800 border-y border-green-500/20">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <div class="stat-number">50K+</div>
-          <p class="text-gray-400 font-medium">Active Users</p>
-        </div>
-        <div>
-          <div class="stat-number">100K+</div>
-          <p class="text-gray-400 font-medium">Rewards Distributed</p>
-        </div>
-        <div>
-          <div class="stat-number">4.8</div>
-          <p class="text-gray-400 font-medium">User Rating</p>
-        </div>
-        <div>
-          <div class="stat-number">24/7</div>
-          <p class="text-gray-400 font-medium">Instant Support</p>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- Updated how it works section to dark theme -->
-  <section id="how" class="py-20 px-4 bg-gray-900">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-white mb-4">How to Get Your Reward?</h2>
-        <p class="text-xl text-gray-400">Just three simple steps</p>
-      </div>
-      
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-gray-800 p-8 rounded-3xl shadow-lg card-hover text-center border border-green-500/20">
-          <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">
-            1️⃣
-          </div>
-          <h3 class="text-2xl font-bold mb-4 text-white">Choose Your Reward</h3>
-          <p class="text-gray-400 leading-relaxed">
-            Select from a wide range of gift cards and in-game currency for your favorite games
-          </p>
-        </div>
-        
-        <div class="bg-gray-800 p-8 rounded-3xl shadow-lg card-hover text-center border border-green-500/20">
-          <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">
-            2️⃣
-          </div>
-          <h3 class="text-2xl font-bold mb-4 text-white">Complete an Offer</h3>
-          <p class="text-gray-400 leading-relaxed">
-            Complete a simple offer (download an app or sign up) that takes just a few minutes
-          </p>
-        </div>
-        
-        <div class="bg-gray-800 p-8 rounded-3xl shadow-lg card-hover text-center border border-green-500/20">
-          <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">
-            3️⃣
-          </div>
-          <h3 class="text-2xl font-bold mb-4 text-white">Receive Your Reward</h3>
-          <p class="text-gray-400 leading-relaxed">
-            Get your gift card code or in-game currency instantly and enjoy your games
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Updated gifts section with green accents -->
-  <section id="gifts" class="py-20 px-4 bg-black">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-white mb-4">Available Rewards</h2>
-        <p class="text-xl text-gray-400">Choose from the best options</p>
-      </div>
-      
-      <div class="grid md:grid-cols-4 gap-6">
-        <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-3xl shadow-lg card-hover border border-green-500/30">
-          <div class="bg-gray-900 rounded-2xl p-4 mb-4 shadow-sm">
-            <img src="./images/google" alt="Google Play" class="w-full h-32 object-contain">
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">Google Play</h3>
-          <p class="text-gray-400 text-sm mb-4">Multiple denominations</p>
-          <div class="flex items-center justify-between">
-            <span class="text-green-400 font-bold">Available</span>
-            <span class="text-2xl">🎮</span>
-          </div>
-        </div>
-        
-        <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-3xl shadow-lg card-hover border border-green-500/30">
-          <div class="bg-gray-900 rounded-2xl p-4 mb-4 shadow-sm">
-            <img src="./images/itunes.webp" alt="iTunes" class="w-full h-32 object-contain">
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">iTunes Card</h3>
-          <p class="text-gray-400 text-sm mb-4">For iOS users</p>
-          <div class="flex items-center justify-between">
-            <span class="text-green-400 font-bold">Available</span>
-            <span class="text-2xl">🍎</span>
-          </div>
-        </div>
-        
-        <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-3xl shadow-lg card-hover border border-green-500/30">
-          <div class="bg-gray-900 rounded-2xl p-4 mb-4 shadow-sm">
-            <img src="./images/pubg.webp" alt="PUBG" class="w-full h-32 object-contain">
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">PUBG UC</h3>
-          <p class="text-gray-400 text-sm mb-4">Direct top-up</p>
-          <div class="flex items-center justify-between">
-            <span class="text-green-400 font-bold">Available</span>
-            <span class="text-2xl">🔫</span>
-          </div>
-        </div>
-        
-        <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-3xl shadow-lg card-hover border border-green-500/30">
-          <div class="bg-gray-900 rounded-2xl p-4 mb-4 shadow-sm">
-            <img src="./images/free.webp" alt="Free Fire" class="w-full h-32 object-contain">
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">Free Fire</h3>
-          <p class="text-gray-400 text-sm mb-4">Free diamonds</p>
-          <div class="flex items-center justify-between">
-            <span class="text-green-400 font-bold">Available</span>
-            <span class="text-2xl">💎</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Updated testimonials section -->
-  <!-- <section id="testimonials" class="py-20 px-4 bg-gray-900">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-white mb-4">What Our Users Say</h2>
-        <p class="text-xl text-gray-400">Thousands of satisfied users</p>
-      </div>
-      
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-gray-800 p-8 rounded-3xl shadow-lg border border-green-500/20">
-          <div class="flex items-center gap-1 mb-4">
-            <span class="text-yellow-400 text-xl">⭐⭐⭐⭐⭐</span>
-          </div>
-          <p class="text-gray-300 mb-6 leading-relaxed">
-            "I got a $10 Google Play card in less than 5 minutes! The site is amazing and easy to use."
-          </p>
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center text-white font-bold">
-              A
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
             </div>
-            <div>
-              <p class="font-bold text-white">Ahmed Mohamed</p>
-              <p class="text-sm text-gray-500">User for 2 months</p>
-            </div>
-          </div>
         </div>
-        
-        <div class="bg-gray-800 p-8 rounded-3xl shadow-lg border border-green-500/20">
-          <div class="flex items-center gap-1 mb-4">
-            <span class="text-yellow-400 text-xl">⭐⭐⭐⭐⭐</span>
-          </div>
-          <p class="text-gray-300 mb-6 leading-relaxed">
-            "I topped up my PUBG account for free! I didn't believe it at first but it really works 100%"
-          </p>
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center text-white font-bold">
-              S
-            </div>
-            <div>
-              <p class="font-bold text-white">Sarah Ali</p>
-              <p class="text-sm text-gray-500">User for 3 months</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="bg-gray-800 p-8 rounded-3xl shadow-lg border border-green-500/20">
-          <div class="flex items-center gap-1 mb-4">
-            <span class="text-yellow-400 text-xl">⭐⭐⭐⭐⭐</span>
-          </div>
-          <p class="text-gray-300 mb-6 leading-relaxed">
-            "Best site to get free rewards. I've gotten 3 gift cards so far!"
-          </p>
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center text-white font-bold">
-              Y
-            </div>
-            <div>
-              <p class="font-bold text-white">Youssef Khaled</p>
-              <p class="text-sm text-gray-500">User for 1 month</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
 
-  <!-- Updated CTA section with green theme -->
-  <section class="py-20 px-4 gradient-bg text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-0 left-0 w-96 h-96 bg-green-400 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 right-0 w-96 h-96 bg-green-400 rounded-full blur-3xl"></div>
-    </div>
-    
-    <div class="max-w-4xl mx-auto text-center relative z-10">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">
-        Ready to Get Your Free Reward?
-      </h2>
-      <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-        Join over 50,000 users and get free gift cards and in-game currency for your favorite games
-      </p>
-      <a href="YOUR_OGADS_LINK" 
-         class="inline-block bg-green-500 text-black px-10 py-5 rounded-2xl text-xl font-bold shadow-2xl hover:shadow-green-500/50 hover:scale-105 transition-all pulse-glow hover:bg-green-400">
-         🎁 Start Now - 100% Free
-      </a>
-      <p class="mt-6 text-sm text-gray-300">
-        ✓ No credit card required  ✓ Fast & secure  ✓ 24/7 support
-      </p>
-    </div>
-  </section>
+        <button class="cta-button" onclick="redirectToApp()">
+            Installer maintenant
+        </button>
 
-  <!-- Updated trust badges section -->
-  <section class="py-12 bg-gray-800 border-t border-green-500/20">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex flex-wrap justify-center items-center gap-8 text-center">
-        <div class="flex items-center gap-2">
-          <span class="text-2xl">🔒</span>
-          <span class="text-sm font-medium text-gray-300">Safe & Secure</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-2xl">⚡</span>
-          <span class="text-sm font-medium text-gray-300">Instant Delivery</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-2xl">✅</span>
-          <span class="text-sm font-medium text-gray-300">100% Guaranteed</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-2xl">💬</span>
-          <span class="text-sm font-medium text-gray-300">24/7 Support</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer remains the same -->
-
-  <footer class="bg-black text-gray-300 py-12 px-4 border-t border-green-500/20">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid md:grid-cols-4 gap-8 mb-8">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
-              <span class="text-white text-xl font-bold">🎮</span>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-title">Rapide</div>
+                <div class="feature-text">Installation ultra-rapide</div>
             </div>
-            <span class="text-xl font-bold text-white">Gaming Rewards</span>
-          </div>
-          <p class="text-sm text-gray-400 leading-relaxed">
-            Your trusted platform to get free rewards for your favorite games
-          </p>
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <div class="feature-title">Sécurisé</div>
+                <div class="feature-text">Vérifiées et certifiées</div>
+            </div>
         </div>
-        
-        <div>
-          <h4 class="font-bold text-white mb-4">Quick Links</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="#gifts" class="hover:text-green-400 transition">Rewards</a></li>
-            <li><a href="#how" class="hover:text-green-400 transition">How It Works</a></li>
-            <li><a href="#testimonials" class="hover:text-green-400 transition">Testimonials</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="font-bold text-white mb-4">Support</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="#" class="hover:text-green-400 transition">FAQ</a></li>
-            <li><a href="#" class="hover:text-green-400 transition">Contact Us</a></li>
-            <li><a href="#" class="hover:text-green-400 transition">Privacy Policy</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="font-bold text-white mb-4">Follow Us</h4>
-          <div class="flex gap-3">
-            <a href="#" class="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center hover:bg-green-500 transition border border-green-500/30">
-              <span>📱</span>
-            </a>
-            <a href="#" class="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center hover:bg-green-500 transition border border-green-500/30">
-              <span>💬</span>
-            </a>
-            <a href="#" class="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center hover:bg-green-500 transition border border-green-500/30">
-              <span>📧</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
-        <p>© 2025 Gaming Rewards. All rights reserved.</p>
-      </div>
     </div>
-  </footer>
 
+    <script>
+        function redirectToApp() {
+            // Remplace par ton lien d'affiliation
+            const affiliateLink = "https://play.google.com/store/apps/details?id=com.example.app&referrer=your_affiliate_id";
+            window.location.href = affiliateLink;
+        }
+    </script>
 </body>
 </html>
