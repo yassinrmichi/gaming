@@ -3,536 +3,577 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nish - Install Top Apps Now</title>
+    <title>BOFY - Best Offer For You</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Reset and variables */
+        :root {
+            --primary: #7c3aed;
+            --primary-dark: #6d28d9;
+            --secondary: #6b7280;
+            --success: #059669;
+            --background: #fafafa;
+            --surface: #ffffff;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 12px;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-            color: #e2e8f0;
+            background: var(--background);
+            color: var(--text);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
             padding: 20px;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
+            line-height: 1.6;
         }
 
         .container {
-            position: relative;
-            z-index: 1;
-            max-width: 580px;
             width: 100%;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: 24px;
-            padding: 60px 40px;
+            max-width: 440px;
+        }
+
+        /* Main card */
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            box-shadow: var(--shadow);
             text-align: center;
-            animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3),
-                        inset 0 1px 0 rgba(99, 102, 241, 0.2);
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Added spinner styling */
-        .spinner {
             position: relative;
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 40px;
+            overflow: hidden;
         }
 
-        .spinner-circle {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 3px solid rgba(99, 102, 241, 0.2);
-            border-top-color: #6366f1;
-            border-right-color: #3b82f6;
-            border-radius: 50%;
-            animation: spin 2s linear infinite;
+        /* Header */
+        .header {
+            margin-bottom: 32px;
         }
 
-        .spinner-circle:nth-child(2) {
-            width: 60px;
-            height: 60px;
-            top: 10px;
-            left: 10px;
-            border-top-color: #3b82f6;
-            border-right-color: transparent;
-            animation: spin 1.5s linear infinite reverse;
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 16px;
         }
 
-        .spinner-circle:nth-child(3) {
-            width: 40px;
-            height: 40px;
-            top: 20px;
-            left: 20px;
-            border-top-color: #6366f1;
-            border-right-color: transparent;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        h1 {
-            font-size: 2.2em;
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), #a855f7);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text);
         }
 
         .subtitle {
-            font-size: 0.95em;
-            color: #cbd5e1;
-            line-height: 1.6;
-            margin-bottom: 24px;
+            color: var(--text-light);
+            font-size: 1.1rem;
             font-weight: 500;
         }
 
-        /* New trust badges section */
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
+        /* Progress indicator */
+        .progress-section {
+            margin: 32px 0;
         }
 
-        .badge {
+        .progress-info {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 6px;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            color: #cbd5e1;
-            animation: fadeIn 0.8s ease-in-out 0.2s both;
+            margin-bottom: 12px;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .progress-text {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 500;
         }
 
-        .badge-icon {
-            font-size: 1.1em;
-        }
-
-        .status-text {
-            font-size: 0.85em;
-            color: #94a3b8;
-            margin-bottom: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .status-dot {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: #6366f1;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
-            }
-            50% {
-                opacity: 0.7;
-            }
-            100% {
-                box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
-            }
-        }
-
-        .progress-container {
-            margin-bottom: 28px;
+        .progress-percent {
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 600;
         }
 
         .progress-bar {
-            height: 3px;
-            background: rgba(99, 102, 241, 0.2);
+            width: 100%;
+            height: 6px;
+            background: var(--border);
             border-radius: 3px;
             overflow: hidden;
         }
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #6366f1 0%, #3b82f6 100%);
-            animation: fillProgress 2s ease-in-out infinite;
+            background: linear-gradient(90deg, var(--primary), #a855f7);
             border-radius: 3px;
+            transition: width 0.4s ease;
+            width: 0%;
         }
 
-        @keyframes fillProgress {
-            0% {
-                width: 0%;
-            }
-            50% {
-                width: 85%;
-            }
-            100% {
-                width: 100%;
-            }
-        }
-
-        .cta-button {
-            width: 100%;
-            background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
-            color: white;
-            border: none;
-            padding: 18px 32px;
-            font-size: 1.05em;
-            font-weight: 700;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            animation: shimmer 2s infinite;
-        }
-
-        @keyframes shimmer {
-            0% {
-                left: -100%;
-            }
-            100% {
-                left: 100%;
-            }
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.5);
-        }
-
-        .cta-button:active {
-            transform: translateY(0);
-        }
-
-        /* Enhanced benefits section */
-        .benefits {
-            margin-top: 32px;
-            padding: 24px;
-            background: rgba(99, 102, 241, 0.05);
-            border: 1px solid rgba(99, 102, 241, 0.1);
-            border-radius: 16px;
-            margin-bottom: 28px;
-        }
-
-        .benefits-title {
-            font-size: 0.9em;
-            font-weight: 600;
-            color: #6366f1;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .benefits-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            text-align: left;
-        }
-
-        .benefit-item {
-            font-size: 0.8em;
-            color: #cbd5e1;
+        /* Status indicator */
+        .status-indicator {
             display: flex;
-            gap: 8px;
-            align-items: flex-start;
-        }
-
-        .benefit-check {
-            color: #10b981;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        /* New testimonials section */
-        .testimonials {
-            margin-top: 28px;
-            padding-top: 28px;
-            border-top: 1px solid rgba(99, 102, 241, 0.1);
-        }
-
-        .testimonial-title {
-            font-size: 0.85em;
-            font-weight: 600;
-            color: #94a3b8;
-            margin-bottom: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .rating {
-            display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 4px;
-            margin-bottom: 8px;
-        }
-
-        .star {
-            color: #fbbf24;
-            font-size: 1em;
-        }
-
-        .rating-text {
-            font-size: 0.8em;
-            color: #cbd5e1;
-            margin-bottom: 12px;
-        }
-
-        .testimonial-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
             gap: 12px;
+            margin: 24px 0;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: var(--radius);
         }
 
-        .testimonial-card {
-            background: rgba(99, 102, 241, 0.05);
-            border: 1px solid rgba(99, 102, 241, 0.1);
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 0.75em;
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
         }
 
-        .testimonial-user {
-            font-weight: 600;
-            color: #e2e8f0;
-            margin-bottom: 4px;
+        .status-text {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 500;
         }
 
-        .testimonial-text {
-            color: #94a3b8;
-            line-height: 1.4;
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
+        /* Features */
         .features {
-            margin-top: 28px;
-            padding-top: 28px;
-            border-top: 1px solid rgba(99, 102, 241, 0.1);
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 16px;
+            margin: 32px 0;
         }
 
         .feature {
-            font-size: 0.85em;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+
+        .feature.active {
+            opacity: 1;
+            background: #f3e8ff;
+            border: 1px solid #e9d5ff;
         }
 
         .feature-icon {
-            font-size: 1.8em;
-            margin-bottom: 8px;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-content {
+            flex: 1;
+            text-align: left;
         }
 
         .feature-title {
             font-weight: 600;
-            color: #e2e8f0;
+            color: var(--text);
             margin-bottom: 4px;
         }
 
-        .feature-text {
-            color: #94a3b8;
-            font-size: 0.8em;
+        .feature-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
         }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 40px 24px;
+        /* Offer section */
+        .offer-section {
+            background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+            border: 1px solid #e9d5ff;
+            border-radius: var(--radius);
+            padding: 24px;
+            margin: 24px 0;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+        }
+
+        .offer-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .offer-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), #a855f7);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .offer-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .offer-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .offer-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Action button */
+        .action-button {
+            width: 100%;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, var(--primary), #a855f7);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .action-button.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .action-button:hover {
+            background: linear-gradient(135deg, var(--primary-dark), #9333ea);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+        }
+
+        .action-button:active {
+            transform: translateY(0);
+        }
+
+        .action-button.loading {
+            background: var(--secondary);
+            cursor: not-allowed;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .security-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .security-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .card {
+                padding: 32px 24px;
             }
-            h1 {
-                font-size: 1.8em;
+            
+            .logo-text {
+                font-size: 1.75rem;
             }
+            
             .subtitle {
-                font-size: 0.9em;
+                font-size: 1rem;
             }
-            .benefits-list {
-                grid-template-columns: 1fr;
+            
+            .feature {
+                padding: 12px;
             }
-            .testimonial-cards {
-                grid-template-columns: 1fr;
+            
+            .offer-section {
+                padding: 20px;
             }
-            .features {
-                grid-template-columns: 1fr;
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
-            .trust-badges {
-                flex-direction: column;
-                gap: 10px;
-            }
+        }
+
+        /* Focus states for accessibility */
+        .action-button:focus {
+            outline: 3px solid rgba(124, 58, 237, 0.3);
+            outline-offset: 2px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="spinner">
-            <div class="spinner-circle"></div>
-            <div class="spinner-circle"></div>
-            <div class="spinner-circle"></div>
-        </div>
-
-        <h1>best app for you</h1>
-        <p class="subtitle">Get your favorite apps in seconds</p>
-
-        <!-- Trust badges for security -->
-        <div class="trust-badges">
-            <div class="badge">
-                <span class="badge-icon">🔒</span>
-                <span>100% Secure</span>
-            </div>
-            <div class="badge">
-                <span class="badge-icon">✓</span>
-                <span>Verified</span>
-            </div>
-            <div class="badge">
-                <span class="badge-icon">⚡</span>
-                <span>Fast Install</span>
-            </div>
-        </div>
-
-        <div class="status-text">
-            <span class="status-dot"></span>
-            Click "Install Now" to get started
-        </div>
-
-        <div class="progress-container">
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
-            </div>
-        </div>
-
-        <button class="cta-button" onclick="redirectToApp()">
-            Install Now
-        </button>
-
-        <!-- Benefits section explaining user advantages -->
-        <div class="benefits">
-            <div class="benefits-title">Why Choose Us?</div>
-            <div class="benefits-list">
-                <div class="benefit-item">
-                    <span class="benefit-check">✓</span>
-                    <span>1M+ Happy Users</span>
+        <div class="card">
+            <!-- Header -->
+            <div class="header">
+                <div class="logo">
+                    <div class="logo-icon">B</div>
+                    <div class="logo-text">BOFY</div>
                 </div>
-                <div class="benefit-item">
-                    <span class="benefit-check">✓</span>
-                    <span>Zero Hidden Fees</span>
+                <div class="subtitle">Best Offer For You</div>
+            </div>
+
+            <!-- Progress indicator -->
+            <div class="progress-section">
+                <div class="progress-info">
+                    <div class="progress-text" id="progress-text">Searching for offers...</div>
+                    <div class="progress-percent" id="progress-percent">0%</div>
                 </div>
-                <div class="benefit-item">
-                    <span class="benefit-check">✓</span>
-                    <span>24/7 Support</span>
-                </div>
-                <div class="benefit-item">
-                    <span class="benefit-check">✓</span>
-                    <span>Privacy Protected</span>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
                 </div>
             </div>
-        </div>
 
-        <!-- Testimonials section building social proof -->
-        <div class="testimonials">
-            <div class="testimonial-title">User Reviews</div>
-            <div class="rating">
-                <span class="star">★</span>
-                <span class="star">★</span>
-                <span class="star">★</span>
-                <span class="star">★</span>
-                <span class="star">★</span>
+            <!-- Status indicator -->
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <div class="status-text" id="status-text">Analyzing your profile...</div>
             </div>
-            <div class="rating-text">4.8 out of 5 (12,500+ reviews)</div>
-            
-            <div class="testimonial-cards">
-                <div class="testimonial-card">
-                    <div class="testimonial-user">Sarah M.</div>
-                    <div class="testimonial-text">"Super fast and reliable. Exactly what I needed!"</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-user">John D.</div>
-                    <div class="testimonial-text">"Best experience so far. Highly recommend!"</div>
-                </div>
-            </div>
-        </div>
 
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">⚡</div>
-                <div class="feature-title">Lightning Fast</div>
-                <div class="feature-text">Ultra-fast installation</div>
+            <!-- Features -->
+            <div class="features">
+                <div class="feature" id="feature1">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="feature-content">
+                        <div class="feature-title">Profile Analyzed</div>
+                        <div class="feature-desc">Your preferences have been reviewed</div>
+                    </div>
+                </div>
+                <div class="feature" id="feature2">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="feature-content">
+                        <div class="feature-title">Offer Search</div>
+                        <div class="feature-desc">Scanning our partner offers</div>
+                    </div>
+                </div>
+                <div class="feature" id="feature3">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <div class="feature-title">Optimization</div>
+                        <div class="feature-desc">Selecting the best offer</div>
+                    </div>
+                </div>
             </div>
-            <div class="feature">
-                <div class="feature-icon">🔒</div>
-                <div class="feature-title">Secure & Safe</div>
-                <div class="feature-text">Verified & certified</div>
+
+            <!-- Offer section -->
+            <div class="offer-section" id="offer-section">
+                <div class="offer-badge">EXCLUSIVE OFFER</div>
+                <h3 class="offer-title">Personalized Offer Found</h3>
+                <p class="offer-desc">We've selected a special offer matching your criteria. Complete a simple action to access it.</p>
+                <div class="offer-meta">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure • No commitment • Privacy respected</span>
+                </div>
+            </div>
+
+            <!-- Action button -->
+            <button class="action-button" id="action-button">
+                <i class="fas fa-external-link-alt"></i>
+                View Recommended Offer
+            </button>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="security-info">
+                    <div class="security-item">
+                        <i class="fas fa-lock"></i>
+                        <span>Secure</span>
+                    </div>
+                    <div class="security-item">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Confidential</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        function redirectToApp() {
-            // Replace with your affiliate link
-            const affiliateLink = "https://play.google.com/store/apps/details?id=com.example.app&referrer=your_affiliate_id";
-            window.location.href = affiliateLink;
+        // DOM Elements
+        const progressFill = document.getElementById('progress-fill');
+        const progressPercent = document.getElementById('progress-percent');
+        const progressText = document.getElementById('progress-text');
+        const statusText = document.getElementById('status-text');
+        const actionButton = document.getElementById('action-button');
+        const offerSection = document.getElementById('offer-section');
+        const features = [
+            document.getElementById('feature1'),
+            document.getElementById('feature2'),
+            document.getElementById('feature3')
+        ];
+
+        // Status messages
+        const statusMessages = [
+            "Analyzing your profile...",
+            "Searching for matching offers...",
+            "Checking eligibility...",
+            "Negotiating terms...",
+            "Optimizing in progress...",
+            "Personalized offer ready!"
+        ];
+
+        // Process simulation
+        let progress = 0;
+        let currentStatus = 0;
+
+        function updateProgress() {
+            progress += Math.random() * 8 + 2; // Progress between 2% and 10%
+            
+            if (progress >= 100) {
+                progress = 100;
+                completeProcess();
+            }
+            
+            // Visual update
+            progressFill.style.width = `${progress}%`;
+            progressPercent.textContent = `${Math.round(progress)}%`;
+            
+            // Status change
+            if (progress >= 20 && currentStatus === 0) {
+                updateStatus(1);
+                features[0].classList.add('active');
+            } else if (progress >= 45 && currentStatus === 1) {
+                updateStatus(2);
+                features[1].classList.add('active');
+            } else if (progress >= 70 && currentStatus === 2) {
+                updateStatus(3);
+                features[2].classList.add('active');
+            } else if (progress >= 85 && currentStatus === 3) {
+                updateStatus(4);
+            } else if (progress >= 95 && currentStatus === 4) {
+                updateStatus(5);
+            }
+            
+            // Continue progress
+            if (progress < 100) {
+                setTimeout(updateProgress, 400 + Math.random() * 300);
+            }
         }
+
+        function updateStatus(statusIndex) {
+            currentStatus = statusIndex;
+            statusText.textContent = statusMessages[statusIndex];
+            progressText.textContent = getProgressText(statusIndex);
+        }
+
+        function getProgressText(statusIndex) {
+            const texts = [
+                "Initializing...",
+                "Profile analysis...",
+                "Search in progress...",
+                "Optimization...",
+                "Finalizing...",
+                "Ready!"
+            ];
+            return texts[statusIndex];
+        }
+
+        function completeProcess() {
+            // Show offer and button
+            setTimeout(() => {
+                offerSection.classList.add('visible');
+                actionButton.classList.add('visible');
+                
+                // Focus on button for accessibility
+                actionButton.focus();
+            }, 600);
+        }
+
+        // Button click handling
+        actionButton.addEventListener('click', function() {
+            // Loading state
+            this.classList.add('loading');
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting...';
+            
+            // Simulate processing delay
+            setTimeout(() => {
+                // REPLACE WITH YOUR OGADS LINK
+                window.location.href = 'https://your-ogads-link.com/offer';
+            }, 1500);
+        });
+
+        // Start the process
+        setTimeout(updateProgress, 1000);
+
+        // Accessibility - Keyboard support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && actionButton.classList.contains('visible')) {
+                actionButton.click();
+            }
+        });
     </script>
 </body>
 </html>
